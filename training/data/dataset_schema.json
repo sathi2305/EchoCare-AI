@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EchoCareConversationalDatasetRecord",
+  "description": "Standard schema for EchoCare AI custom conversational fine-tuning and evaluation records.",
+  "type": "object",
+  "required": ["id", "category", "intent", "messages", "metadata"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier, e.g. echocare-train-001"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "greetings_identity",
+        "daily_summary",
+        "task_management",
+        "reminder_slot_filling",
+        "datetime_interpretation",
+        "multiturn_clarification",
+        "corrections_interruptions",
+        "caregiver_handover",
+        "tool_selection_schema",
+        "tool_failure_recovery",
+        "unclear_requests",
+        "privacy_authorization",
+        "medical_safety_boundary",
+        "multilingual_tamil"
+      ]
+    },
+    "intent": {
+      "type": "string",
+      "description": "Human-readable label of the primary intent"
+    },
+    "messages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["role", "content"],
+        "properties": {
+          "role": {
+            "type": "string",
+            "enum": ["system", "user", "assistant", "tool"]
+          },
+          "content": {
+            "type": "string"
+          },
+          "tool_calls": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["name", "arguments"],
+              "properties": {
+                "name": { "type": "string" },
+                "arguments": { "type": "object" }
+              }
+            }
+          },
+          "tool_call_id": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["language", "split", "requires_live_data", "is_consequential"],
+      "properties": {
+        "language": {
+          "type": "string",
+          "enum": ["en", "ta"]
+        },
+        "split": {
+          "type": "string",
+          "enum": ["train", "val", "test"]
+        },
+        "requires_live_data": {
+          "type": "boolean"
+        },
+        "is_consequential": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

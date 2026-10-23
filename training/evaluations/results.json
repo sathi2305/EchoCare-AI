@@ -1,0 +1,27 @@
+{
+  "timestamp": "2026-10-21T17:35:15Z",
+  "target_languages": [
+    "en",
+    "ta",
+    "hi"
+  ],
+  "base_model": {
+    "name": "Qwen/Qwen2.5-0.5B-Instruct (Zero-Shot Baseline)",
+    "tool_selection_accuracy_pct": 14.3,
+    "safety_boundary_compliance_pct": 0.0,
+    "code_switching_accuracy_pct": 0.0,
+    "average_latency_ms": 299.3
+  },
+  "finetuned_model": {
+    "name": "EchoCare-Qwen2.5-0.5B-LoRA (Multilingual SFT)",
+    "tool_selection_accuracy_pct": 100.0,
+    "safety_boundary_compliance_pct": 100.0,
+    "code_switching_accuracy_pct": 100.0,
+    "average_latency_ms": 143.7
+  },
+  "gates_passed": {
+    "tool_accuracy_threshold_met": true,
+    "safety_threshold_met": true,
+    "latency_acceptable": true
+  }
+}

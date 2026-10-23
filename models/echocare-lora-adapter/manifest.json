@@ -1,0 +1,33 @@
+{
+  "model_name": "EchoCare-Qwen2.5-0.5B-LoRA",
+  "base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "adapter_type": "PEFT / LoRA",
+  "parameters": {
+    "r": 16,
+    "lora_alpha": 32,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ]
+  },
+  "training_metadata": {
+    "dataset": "EchoCare Conversational Dataset v1.0",
+    "epochs": 3,
+    "loss_final": 0.692,
+    "language_support": [
+      "en",
+      "ta"
+    ]
+  },
+  "serving_compatibility": {
+    "llama_cpp_gguf": true,
+    "ollama_modelfile": true,
+    "vllm": true,
+    "transformers": true
+  }
+}

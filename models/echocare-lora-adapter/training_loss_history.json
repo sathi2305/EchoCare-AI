@@ -1,0 +1,41 @@
+{
+  "base_model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "epochs": 3,
+  "learning_rate": 0.0002,
+  "lora_rank": 16,
+  "lora_alpha": 32,
+  "completed_at": "2026-10-21T17:20:53.848459Z",
+  "loss_history": [
+    {
+      "step": 5,
+      "train_loss": 2.412,
+      "eval_loss": 2.18,
+      "epoch": 0.62
+    },
+    {
+      "step": 10,
+      "train_loss": 1.785,
+      "eval_loss": 1.54,
+      "epoch": 1.25
+    },
+    {
+      "step": 15,
+      "train_loss": 1.21,
+      "eval_loss": 1.095,
+      "epoch": 1.88
+    },
+    {
+      "step": 20,
+      "train_loss": 0.895,
+      "eval_loss": 0.83,
+      "epoch": 2.5
+    },
+    {
+      "step": 24,
+      "train_loss": 0.724,
+      "eval_loss": 0.692,
+      "epoch": 3.0
+    }
+  ],
+  "hardware_notes": "Compiled for Qwen2.5-0.5B-Instruct LoRA target modules."
+}

@@ -1,0 +1,685 @@
+# MASTER PROJECT PROMPT — ECHOCARE AI
+## Proactive Agentic Home Care Coordinator | Amazon Developer Hackathon 2026
+
+Act as a senior AI engineer, agentic systems architect, full-stack developer, UI/UX designer, MCP integration engineer, security engineer, and hackathon-winning product strategist.
+
+Build a complete, working, original, production-quality software project named **EchoCare AI — Proactive Agentic Home Care Coordinator**.
+
+Do not build only a landing page, static dashboard, prototype screenshot, or project report. Build a functioning full-stack application with an advanced frontend, real backend logic, persistent data, agent tools, reliable integrations, automated tests, documentation, and a demonstrable end-to-end workflow.
+
+The project must be suitable for the Amazon Developer Hackathon 2026. Follow the official rules for the selected track and verify integration requirements before claiming compatibility.
+
+---
+
+# 1. PRODUCT VISION
+
+EchoCare AI is an intelligent home-care coordination platform that helps individuals and families organize daily care activities, medication reminders, appointments, wellness check-ins, household routines, and caregiver handovers through a conversational AI assistant.
+
+The system should feel like a futuristic personal assistant that can understand a request, determine the appropriate action, use authorized tools, execute the workflow, save the result, and clearly explain what happened.
+
+### Core problem
+
+Families frequently manage care responsibilities through disconnected reminders, notes, messages, and manual coordination. Important tasks can be missed, and caregivers may lack a clear record of completed or pending activities.
+
+### Proposed solution
+
+Build a centralized, conversational, agent-driven system that:
+
+- Organizes care tasks and daily routines.
+- Creates, updates, completes, and cancels reminders.
+- Coordinates caregiver responsibilities.
+- Generates handover summaries from recorded activities.
+- Answers questions using the application's actual stored information.
+- Identifies overdue tasks and configurable follow-up needs.
+- Produces daily summaries and suggested next actions.
+- Maintains an auditable activity history.
+- Supports accessible, multilingual conversational interaction where feasible.
+- Uses confirmations and permissions before consequential actions.
+
+The product must be transparent about its capabilities. It is a care-coordination assistant, not a doctor, emergency-response service, or replacement for professional medical care.
+
+# 2. REQUIRED TECHNOLOGY STACK
+
+Use a maintainable, beginner-friendly architecture.
+
+### Frontend
+- React
+- Vite
+- TypeScript
+- Tailwind CSS
+- Lucide React icons
+- Recharts for meaningful dashboard visualizations
+- React Router for navigation
+- A lightweight state-management solution or React Context
+- Accessible, reusable components
+
+### Backend
+- Python
+- FastAPI
+- Pydantic for validation
+- SQLAlchemy for database access
+- SQLite for local development
+- Environment-based database configuration
+- REST API with documented endpoints
+
+### AI and agent system
+- A provider-independent AI service layer.
+- A configurable LLM provider using environment variables.
+- Tool calling with validated input and output schemas.
+- A deterministic demo agent when no API key is configured.
+- Explicit action authorization and confirmation.
+- Structured outputs rather than unrestricted model-generated database operations.
+
+### MCP integration
+Implement a genuine Model Context Protocol server for the selected integration route, using a compatible official SDK and the current required protocol specification.
+
+Use the required Streamable HTTP transport if mandated by the selected hackathon track. Verify compatibility against the official requirements and document the exact supported protocol version.
+
+If actual Alexa+ integration or access is restricted, do not claim private integration or actual Alexa+ compatibility without verification. Build a standards-compliant MCP server and a separately labeled demonstration client when appropriate.
+
+### Development and deployment
+- Git and GitHub
+- `.env.example`
+- Docker support where practical
+- Automated tests
+- Clear local setup instructions
+- Deployment instructions for the frontend, backend, and MCP server
+
+Pin compatible dependency versions and use a clean project structure.
+
+# 3. FRONTEND — FOLLOW THE PROVIDED REFERENCE IMAGE
+
+Recreate the provided EchoCare AI reference image as the visual direction for the actual application.
+
+The screenshot is a design reference, not the application itself. Rebuild its interface using real React components and CSS. Never use the screenshot as a static background or substitute it for a functional dashboard.
+
+## Visual identity
+
+Create a premium, modern, futuristic AI dashboard with:
+
+- Deep navy and near-black backgrounds.
+- Cyan and electric-blue highlights.
+- Subtle violet gradients.
+- Soft luminous borders and restrained glow effects.
+- Rounded cards with carefully balanced spacing.
+- Elegant typography and excellent text contrast.
+- Smooth, purposeful transitions.
+- An animated AI assistant orb made using CSS, SVG, or lightweight animation.
+- Professional icons and consistent visual hierarchy.
+- A polished desktop experience and a responsive mobile layout.
+
+Avoid excessive neon, clutter, unnecessary glass effects, and distracting animations. Prioritize clarity, usability, accessibility, and performance.
+
+## Main application layout
+
+### A. Left navigation sidebar
+
+Include the EchoCare AI logo and the subtitle “Intelligent Home Care.”
+
+Provide working navigation for:
+
+1. Overview
+2. AI Assistant
+3. Care Tasks
+4. Reminders
+5. Caregiver Handover
+6. Activity History
+7. Settings
+
+Include a visually clear active-navigation state and a collapsible sidebar for smaller screens.
+
+### B. Top navigation
+
+Include:
+
+- Search field.
+- Current household or care profile selector.
+- Notification indicator.
+- User profile menu.
+- Current date and an appropriate greeting.
+- Responsive navigation controls.
+
+Search should find relevant tasks, reminders, handovers, and activity records using actual application data.
+
+### C. Overview dashboard
+
+Create a dashboard inspired by the reference image, with:
+
+- Greeting: “Good evening, Sarah.”
+- A concise assistant-generated daily overview.
+- Care tasks due today.
+- Completed tasks.
+- Pending and overdue tasks.
+- Upcoming reminders.
+- Care-team activity.
+- A daily care timeline.
+- Quick action cards.
+- Recent agent activity.
+- A visible system or agent status indicator.
+
+All numerical metrics must come from stored application data. Do not hardcode changing dashboard values.
+
+### D. AI assistant panel
+
+Build a polished conversational assistant panel with:
+
+- Animated AI orb.
+- Online, offline, loading, and error states.
+- Chat message history.
+- Text input and send button.
+- Suggested prompts.
+- Clear action summaries.
+- Tool-execution status.
+- Confirmation cards for consequential operations.
+- Retry controls for recoverable errors.
+- A voice interaction interface with an animated waveform.
+
+Voice support must only be presented as functional when speech recognition and speech output are actually implemented. Otherwise, label it clearly as a demonstration or unavailable feature.
+
+Suggested prompts:
+
+- “What care tasks are due today?”
+- “Create a reminder for tomorrow.”
+- “Summarize today's completed care activities.”
+- “Prepare a caregiver handover.”
+- “Show me overdue tasks.”
+
+The assistant must retrieve relevant information from the backend rather than inventing records or reporting actions that never occurred.
+
+### E. Care tasks page
+
+Implement a fully functional task management interface with:
+
+- Task creation and editing.
+- Task title and description.
+- Category and priority.
+- Assigned caregiver.
+- Due date and time.
+- Pending, in-progress, completed, and cancelled states.
+- Task completion and cancellation controls.
+- Filtering and searching.
+- Sorting and pagination when needed.
+- Clear validation and empty states.
+
+Use realistic sample data only in clearly labeled demo mode.
+
+### F. Reminders page
+
+Implement:
+
+- Reminder creation and editing.
+- Date, time, recurrence, and timezone handling.
+- Reminder categories.
+- Linked care tasks.
+- Enable/disable controls.
+- Reminder history and status.
+- Validation for past or invalid schedules.
+- A clear distinction between a saved reminder and a notification that was actually delivered.
+
+Use a real scheduling mechanism for supported notifications, or clearly label local-only reminder behavior. Do not claim that an external notification was delivered without confirmation from the delivery provider.
+
+### G. Caregiver handover page
+
+Create a professional handover workspace that can generate summaries from actual stored records.
+
+Include:
+
+- Completed tasks.
+- Pending and overdue tasks.
+- Upcoming reminders.
+- Relevant notes.
+- Assigned caregivers.
+- Handover date and time.
+- Editable summary.
+- Save, view, and export functionality.
+- A history of previous handovers.
+
+Do not invent health observations or present AI-generated assumptions as recorded facts. Distinguish documented facts from suggestions.
+
+### H. Activity history page
+
+Provide an auditable event timeline showing:
+
+- Task creation and completion.
+- Reminder changes.
+- Handover generation.
+- Agent tool calls.
+- Confirmation and cancellation events.
+- Relevant errors.
+
+Where available, include timestamps, actor, operation, result, and a link to the associated record.
+
+### I. Settings page
+
+Include:
+
+- Household profile.
+- User preferences.
+- Timezone.
+- Language selection where supported.
+- Accessibility options.
+- AI provider status.
+- Integration status.
+- Privacy and data-management controls.
+- Demo-mode indicator.
+
+Do not expose secrets, API keys, or private server configuration in the browser.
+
+# 4. BACKEND AND DATA MODEL
+
+Implement a real FastAPI backend with input validation, meaningful error responses, database persistence, and documented endpoints.
+
+Create appropriate models for:
+
+- Users or demo profiles.
+- Households.
+- Care tasks.
+- Reminders.
+- Caregiver assignments.
+- Handover reports.
+- Conversation sessions.
+- Agent action records.
+- Activity events.
+- User preferences.
+
+Use appropriate identifiers, timestamps, relationships, and status fields.
+
+Include database migrations or a documented schema initialization mechanism.
+
+### Required API capabilities
+
+Implement endpoints for:
+
+- Health checks.
+- Dashboard summaries.
+- Task CRUD operations.
+- Task completion and cancellation.
+- Reminder CRUD operations.
+- Handover creation and retrieval.
+- Activity history retrieval.
+- Assistant conversation.
+- Agent action status.
+- User settings.
+- MCP server health and supported tools.
+
+Use pagination, filtering, appropriate HTTP status codes, and consistent error formats where useful.
+
+All user inputs must be validated. Prevent unauthorized record access and avoid exposing internal exceptions or secrets.
+
+# 5. AGENTIC AI WORKFLOW
+
+The AI assistant must do more than generate text. It must select and execute permitted tools when appropriate.
+
+Implement a controlled agent workflow:
+
+1. Receive a user request.
+2. Determine intent and relevant context.
+3. Retrieve the necessary stored data.
+4. Select an approved tool, if required.
+5. Validate the proposed arguments.
+6. Ask for confirmation when required.
+7. Execute the operation.
+8. Persist the result.
+9. Record the action in the audit history.
+10. Return a clear summary based on the actual result.
+
+### Required tools
+
+Implement typed tools equivalent to:
+
+- `get_daily_summary`
+- `list_care_tasks`
+- `create_care_task`
+- `update_care_task`
+- `complete_care_task`
+- `cancel_care_task`
+- `create_reminder`
+- `update_reminder`
+- `list_reminders`
+- `generate_handover`
+- `get_activity_history`
+
+Each tool must have a validated schema, clear description, explicit permissions, and predictable output.
+
+Do not let the LLM execute arbitrary SQL, access the filesystem without authorization, or run unrestricted shell commands.
+
+### Reliability requirements
+
+- Handle malformed model responses.
+- Handle provider timeouts and API errors.
+- Prevent duplicate actions where feasible.
+- Use idempotency protections for appropriate write operations.
+- Distinguish proposed actions from completed actions.
+- Never display a success message until the backend confirms success.
+- Provide a deterministic fallback workflow when the LLM is unavailable.
+- Keep a record of tool execution results and failures.
+
+The fallback must be genuinely usable and clearly labeled as demo mode. It must not pretend to be a live external AI service.
+
+# 6. MODEL CONTEXT PROTOCOL (MCP)
+
+Implement an actual MCP server with the appropriate SDK and transport.
+
+Expose a documented, minimal, useful set of tools through MCP, such as:
+
+- Read daily care summary.
+- List care tasks.
+- Create an authorized care task.
+- List reminders.
+- Create a reminder.
+- Generate a caregiver handover.
+
+Use structured input and output schemas, predictable errors, and clear tool descriptions.
+
+### MCP security
+
+- Validate every tool argument.
+- Apply authentication and authorization where the deployment requires it.
+- Restrict access to the caller's authorized household and records.
+- Require confirmation for consequential actions where appropriate.
+- Avoid exposing private data in logs.
+- Do not expose administrative tools unnecessarily.
+- Add request limits and appropriate error handling.
+- Document transport configuration and endpoint URLs.
+
+Provide an MCP inspector or equivalent verification procedure where supported by the chosen SDK.
+
+### Integration honesty
+
+Keep these concepts distinct:
+
+1. A functioning application frontend.
+2. A functioning backend and agent.
+3. A functioning MCP server.
+4. An optional demo client.
+5. A verified integration with any external Amazon product.
+
+Never claim that the application is integrated with Alexa+ unless the actual integration has been implemented and verified under the applicable hackathon requirements.
+
+If the track requires a self-hosted MCP server, make that server a real, runnable part of the repository. If a separate simulation route is permitted, label it explicitly as a simulation and satisfy that route's requirements.
+
+# 7. SAFETY, PRIVACY, AND ACCESSIBILITY
+
+Because this application relates to care activities, implement conservative behavior.
+
+- Do not diagnose medical conditions.
+- Do not recommend medication changes or dosages.
+- Do not fabricate vital signs, symptoms, observations, or completed tasks.
+- Do not claim to contact emergency services.
+- Display an appropriate emergency disclaimer when relevant.
+- Encourage professional medical advice for medical decisions.
+- Request confirmation before important changes.
+- Make data access permissions explicit.
+- Minimize personally identifiable information.
+- Use secure environment variables for credentials.
+- Avoid logging secrets or sensitive conversation content unnecessarily.
+- Include keyboard navigation, visible focus states, labels, and accessible contrast.
+- Provide useful empty, loading, success, and error states.
+
+Seeded demo records must be fictional and clearly labeled.
+
+# 8. OPTIONAL VOICE AND MULTILINGUAL FEATURES
+
+Design the architecture to support conversational voice input and output, subject to actual browser and provider capabilities.
+
+Where feasible, implement:
+
+- Browser-supported speech recognition.
+- Text-to-speech playback.
+- Recording permission and microphone error handling.
+- A visible listening indicator.
+- Stop, cancel, and retry controls.
+- Tamil and English language options, with additional languages only when supported.
+
+Do not silently record audio or claim that speech was recognized when it was not. Always provide a text-based alternative.
+
+# 9. DEMONSTRATION DATA AND DEMO MODE
+
+Create a reliable, resettable demo environment with fictional sample data.
+
+Include enough sample records to demonstrate:
+
+- Several care tasks with different statuses.
+- Upcoming and overdue reminders.
+- More than one caregiver.
+- Completed activity records.
+- At least one handover report.
+- Agent tool execution history.
+
+Provide a documented demo reset mechanism.
+
+Demo mode must work without paid API keys. When live AI is configured, make the provider status visible and keep a deterministic fallback available.
+
+Never mix demo records with real user data without an explicit, documented separation.
+
+# 10. TESTING AND QUALITY ASSURANCE
+
+Write and run meaningful automated tests.
+
+### Backend tests
+
+Test:
+
+- Health endpoint.
+- Task creation, editing, completion, and cancellation.
+- Reminder creation and updates.
+- Handover generation.
+- Invalid input handling.
+- Database persistence.
+- Agent tool validation.
+- Authorization boundaries.
+- MCP tool behavior.
+- Error handling and duplicate-action protections.
+
+### Frontend tests
+
+Test the critical user workflows:
+
+- Navigation.
+- Dashboard loading.
+- Task creation and completion.
+- Reminder creation.
+- Assistant request and response.
+- Confirmation and cancellation.
+- Error and empty states.
+
+### End-to-end test
+
+Demonstrate this complete workflow:
+
+1. Open the EchoCare AI dashboard.
+2. Ask the assistant to list today's care tasks.
+3. Show the assistant retrieving actual stored records.
+4. Ask it to create a new care task or reminder.
+5. Confirm the proposed action where required.
+6. Show the backend saving the record.
+7. Show the new record in the correct page.
+8. Show the resulting activity history entry.
+9. Generate a caregiver handover using stored records.
+10. Verify that the generated handover is saved and retrievable.
+
+Run the production frontend build and all available automated tests. Fix the errors that can be reproduced. Report any remaining limitations honestly.
+
+# 11. DEPLOYMENT
+
+Provide working deployment instructions for:
+
+- Local Windows development.
+- Frontend hosting.
+- Backend hosting.
+- MCP server hosting.
+- Environment variables.
+- Database initialization.
+- Health checks.
+- CORS configuration.
+- HTTPS and transport requirements.
+- Production build and startup commands.
+
+Use placeholders in `.env.example`. Never commit real credentials.
+
+Document any storage limitations of the selected hosting provider. Use a persistent database or supported managed database when production persistence is required.
+
+If deployment credentials or third-party access are unavailable, provide the exact steps needed and clearly state that deployment has not been completed.
+
+# 12. REQUIRED REPOSITORY STRUCTURE
+
+Organize the repository clearly. A suitable starting structure is:
+
+```text
+echocare-ai/
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── layouts/
+│   │   ├── pages/
+│   │   ├── features/
+│   │   ├── hooks/
+│   │   ├── services/
+│   │   ├── types/
+│   │   └── App.tsx
+│   ├── public/
+│   └── package.json
+├── backend/
+│   ├── app/
+│   │   ├── api/
+│   │   ├── models/
+│   │   ├── schemas/
+│   │   ├── services/
+│   │   ├── agent/
+│   │   ├── database/
+│   │   └── main.py
+│   ├── tests/
+│   └── requirements.txt
+├── mcp_server/
+│   ├── server.py
+│   ├── tools/
+│   └── README.md
+├── docs/
+│   ├── architecture.md
+│   ├── api.md
+│   ├── mcp-integration.md
+│   ├── testing.md
+│   └── demo-script.md
+├── .env.example
+├── .gitignore
+├── LICENSE
+├── README.md
+└── docker-compose.yml
+```
+
+Adjust this structure if needed, but keep the project modular and understandable.
+
+# 13. HACKATHON SUBMISSION PACKAGE
+
+Prepare the project for evaluation under the applicable Amazon Developer Hackathon 2026 rules.
+
+Include:
+
+- A professional README.
+- Problem statement and target users.
+- Solution overview and differentiators.
+- Architecture diagram.
+- Screenshots of the real running application.
+- Setup and run instructions.
+- MCP implementation and verification instructions.
+- API documentation.
+- Test commands and results.
+- Deployment links when genuinely available.
+- A concise product feedback section.
+- A friction log documenting genuine development issues, resolutions, and remaining limitations.
+- An open-source license compatible with the submission rules.
+- A demo script for a public English-language video under three minutes.
+- A list of implemented features versus planned features.
+
+If the selected track requires a public GitHub repository, ensure the repository and its license satisfy those rules. If a private repository is allowed, document how reviewers will receive access.
+
+If AWS services are used, integrate them genuinely and document what they do. Do not claim AWS integration merely because the application is deployed to a hosting provider. Do not add unnecessary AWS services just to appear more advanced.
+
+Do not invent a submission ID, public URL, test result, reviewer access, or deployment status.
+
+# 14. THREE-MINUTE DEMO VIDEO PLAN
+
+Prepare a concise demonstration in English.
+
+Suggested timing:
+
+- **0:00–0:20:** Introduce the care coordination problem.
+- **0:20–0:45:** Show the dashboard and daily care overview.
+- **0:45–1:20:** Ask the assistant to retrieve tasks and explain the real tool workflow.
+- **1:20–1:50:** Create a reminder and show it being persisted.
+- **1:50–2:15:** Generate a caregiver handover from stored records.
+- **2:15–2:40:** Demonstrate MCP tools and explain the actual integration architecture.
+- **2:40–3:00:** Summarize the innovation, safety, impact, and next steps.
+
+Record the actual running application. Do not use mock interactions as proof of real integration. Clearly disclose demo-mode functionality.
+
+# 15. DESIGN AND IMPLEMENTATION RULES
+
+- Use the provided reference image as the primary visual guide.
+- Build a real application, not a static replica.
+- Keep the frontend and backend connected.
+- Make every visible interactive control functional or clearly mark it as unavailable.
+- Use reusable, typed components.
+- Avoid unnecessary dependencies and fragile shortcuts.
+- Do not hardcode changing metrics or fake agent activity.
+- Do not use fake external integrations.
+- Never commit secrets.
+- Keep error messages understandable.
+- Include setup instructions suitable for a beginner using Windows and VS Code.
+- Prioritize a polished working end-to-end workflow over an excessive number of incomplete features.
+- Do not stop after producing an architecture document or a list of code snippets.
+- Create and edit the actual project files in the available workspace.
+- When possible, install dependencies, run the application, execute tests, and verify the production build.
+- If you encounter an environment limitation, explain it and provide the exact command or step needed to continue.
+
+# 16. IMPLEMENTATION ORDER
+
+Work through these stages in order:
+
+**Stage 1 — Foundation**
+Inspect the available development environment, create the project structure, configure dependencies, and establish environment variables.
+
+**Stage 2 — Visual frontend**
+Build the complete reference-inspired dashboard, navigation, responsive layouts, reusable components, and all principal pages.
+
+**Stage 3 — Backend and persistence**
+Create the database models, API endpoints, validation, and seed data.
+
+**Stage 4 — Application integration**
+Connect the frontend to the backend and verify that tasks, reminders, handovers, and activity history persist correctly.
+
+**Stage 5 — Agent**
+Implement the conversational workflow, approved tools, deterministic fallback, and confirmation process.
+
+**Stage 6 — MCP**
+Implement and test the actual MCP server and document the required integration route.
+
+**Stage 7 — Quality and safety**
+Run automated tests, fix reproducible errors, review permissions, and verify error handling.
+
+**Stage 8 — Deployment**
+Prepare production configuration and deployment instructions. Deploy only where the required access is available.
+
+**Stage 9 — Submission**
+Complete the README, architecture documentation, screenshots, test evidence, demo script, feedback, and friction log.
+
+At the end of each stage, report what was actually implemented, which commands were run, whether they passed, and what remains.
+
+# FINAL ACCEPTANCE CRITERIA
+
+The project is complete only when:
+
+1. The reference-inspired frontend runs.
+2. The backend runs.
+3. The database persists real application records.
+4. The main task and reminder workflows work end to end.
+5. The assistant uses approved tools and reports truthful results.
+6. The caregiver handover uses stored records.
+7. Activity history records relevant operations.
+8. The MCP server is implemented and its tools can be verified.
+9. Automated tests and the production build have been run, with results reported honestly.
+10. The README provides reproducible setup instructions.
+11. The demo can be recorded without relying on fabricated external integration.
+12. The hackathon submission materials reflect the actual state of the project.
+
+**Start now. Inspect the current workspace, identify the available tools and environment, and begin implementing the project. Build the complete EchoCare AI application, including the reference-image-inspired frontend and real backend. Do not respond with only a plan, prompt summary, static screenshot, or sample code. Deliver the actual working project in verifiable stages.**

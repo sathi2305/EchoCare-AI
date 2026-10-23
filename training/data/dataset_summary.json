@@ -1,0 +1,23 @@
+{
+  "total_records": 33,
+  "languages": [
+    "en",
+    "ta",
+    "hi"
+  ],
+  "splits": {
+    "train": 18,
+    "validation": 6,
+    "test": 9
+  },
+  "categories_covered": [
+    "greetings_identity",
+    "daily_summary",
+    "caregiver_handover",
+    "multilingual_tamil",
+    "privacy_authorization",
+    "medical_safety_boundary",
+    "multilingual_hindi",
+    "reminder_slot_filling"
+  ]
+}

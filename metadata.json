@@ -1,0 +1,6 @@
+{
+  "name": "EchoCare AI — Proactive Agentic Home Care Coordinator",
+  "description": "Intelligent agentic home care coordination platform organizing daily care tasks, medication reminders, caregiver handovers, and voice-assisted proactive care routines.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
